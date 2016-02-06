@@ -25,6 +25,8 @@ NSUInteger DeviceSystemMajorVersion() {
 
 @interface NMRangeSlider ()
 {
+    UIImage *_trackBackgroundImage;
+
     float _lowerTouchOffset;
     float _upperTouchOffset;
     float _stepValueInternal;
@@ -258,6 +260,12 @@ NSUInteger DeviceSystemMajorVersion() {
     }
     
     return _trackBackgroundImage;
+}
+
+- (void)setTrackBackgroundImage:(UIImage *)trackBackgroundImage {
+    _trackBackgroundImage = trackBackgroundImage;
+    self.trackBackground.image = trackBackgroundImage;
+    self.trackBackground.frame = [self trackBackgroundRect];
 }
 
 - (UIImage *)trackImage
